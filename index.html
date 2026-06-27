@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>闵行中考志愿速查</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">2025 闵行中考</p>
+        <h1>志愿分数速查</h1>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="数据概览">
+        <div class="metric">
+          <span id="parallelCount">-</span>
+          <small>平行志愿可报学校</small>
+        </div>
+        <div class="metric">
+          <span id="minhangCount">-</span>
+          <small>闵行本区高中</small>
+        </div>
+        <div class="metric">
+          <span id="opportunityCount">-</span>
+          <small>市重点机会校</small>
+        </div>
+      </section>
+
+      <section class="controls compact-controls" aria-label="筛选">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="搜学校" autocomplete="off" />
+        </label>
+        <label class="district-filter">
+          <span>区县</span>
+          <select id="districtSelect">
+            <option value="">全部</option>
+          </select>
+        </label>
+      </section>
+
+      <nav class="tabs" aria-label="页面">
+        <button class="tab is-active" type="button" data-view="parallel">平行志愿</button>
+        <button class="tab" type="button" data-view="compare">录取路径分析对比</button>
+        <button class="tab" type="button" data-view="opportunities">市重点机会校</button>
+      </nav>
+
+      <section class="view is-active" id="parallelView" aria-live="polite">
+        <div class="section-head">
+          <h2>平行志愿排序</h2>
+          <span id="parallelResultCount"></span>
+        </div>
+        <div class="card-list" id="parallelList"></div>
+      </section>
+
+      <section class="view" id="compareView" aria-live="polite">
+        <div class="section-head">
+          <h2>录取路径分析对比</h2>
+          <span id="compareResultCount"></span>
+        </div>
+        <div class="card-list" id="compareList"></div>
+      </section>
+
+      <section class="view" id="opportunitiesView" aria-live="polite">
+        <div class="section-head">
+          <h2>名额到区市重点机会校</h2>
+          <span id="opportunityResultCount"></span>
+        </div>
+        <p class="note">口径：2023-2025 任一年名额到区低于平行志愿；评价仅基于分数差、年份稳定性、区位远近和学校类型，最终还要看通勤与孩子意愿。</p>
+        <div class="card-list" id="opportunityList"></div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>名额到区、名额到校分数已按源表扣除 50 分综评。艺术类/特色类学校仍需单独确认资格。</p>
+    </footer>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
